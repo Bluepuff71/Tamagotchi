@@ -17,11 +17,14 @@ public class Main {
         System.out.println("[1] Create a Tamagotchi");
         System.out.println("[2] Load a Tamagotchi");
         System.out.println("[3] Quit");
+        System.out.print("Please type your option: ");
         while (!scanner.hasNextInt()){
             System.out.println("That is not an option.");
+            scanner.nextLine(); //clear the scanner buffer
             mainMenu();
         }
         int choice = scanner.nextInt();
+        scanner.nextLine(); //clear the scanner buffer
         switch (choice){
             case 1:{
                 createTamagotchi();
@@ -42,7 +45,7 @@ public class Main {
     private void createTamagotchi(){
         System.out.println("Time to create your Tamagotchi!");
         System.out.println("First, you need to name it!");
-        System.out.println("Enter its name: ");
+        System.out.print("Enter its name: ");
         String name = scanner.nextLine();
         System.out.println("Perfect!");
         System.out.println("Creating your Tamagotchi...");
@@ -50,6 +53,7 @@ public class Main {
     }
 
     private void loadTamagotchi(){
-
+        //Load from file
     }
+
 }
