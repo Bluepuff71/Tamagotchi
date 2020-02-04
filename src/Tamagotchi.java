@@ -69,7 +69,7 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
      * @returns a random personality
      */
     private Personality generatePersonality(){
-        return Personality.values()[new Random().nextInt() * Personality.values().length];
+        return Personality.values()[new Random().nextInt(Personality.values().length - 1)];
     }
 
     /**
