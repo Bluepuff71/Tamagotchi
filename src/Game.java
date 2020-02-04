@@ -7,6 +7,7 @@ public class Game implements Runnable {
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
         new Thread(this).start();
+        gameUI();
     }
 
     @Override
@@ -35,7 +36,9 @@ public class Game implements Runnable {
         System.out.println("[1] Feed");
         System.out.println("[2] Water");
         System.out.println("[3] Play");
-        System.out.println("[4] Quit");
+        System.out.println("[4] Clean");
+        System.out.println("[5] Talk");
+        System.out.println("[6] Quit");
     }
 
 
