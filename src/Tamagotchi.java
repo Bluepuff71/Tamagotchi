@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.Random;
 public class Tamagotchi implements ITamagotchi, IInteractable {
     private String name;
     private int food;
@@ -8,6 +10,31 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
     private int money;
     private Personality personality;
     private int difficulty;
+    private List<Item> inventory;
+
+    public Tamagotchi(String name){
+        this.name = name;
+        this.food = 100;
+        this.water = 100;
+        this.cleanliness = 100;
+        this.mood = 100;
+        this.money = 100;
+        this.personality = generatePersonality();
+    }
+
+    private Personality generatePersonality(){
+        return Personality.values()[new Random().nextInt() * Personality.values().length];
+    }
+
+    /**
+     * Decrements all the stats by 1
+     */
+    public void decrimentStats(){
+        this.food = this.food - 1;
+        this.water = this.water - 1;
+        this.cleanliness = this.cleanliness - 1;
+        this.mood = this.mood - 1;
+    }
 
     @Override
     public void Interact(ITamagotchi iTamagotchi) {
