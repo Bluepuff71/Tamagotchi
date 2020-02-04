@@ -1,4 +1,4 @@
-public class Tamagotchi implements ITamagotchi, IInteractable {
+public class Tamagotchi implements IInteractable {
     private String name;
     private int food;
     private int water;
@@ -10,7 +10,7 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
     private int difficulty;
 
     @Override
-    public void Interact(ITamagotchi iTamagotchi) {
+    public void Interact(Tamagotchi tamagotchi) {
         System.out.println("Communication");
     }
 

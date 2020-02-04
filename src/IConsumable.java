@@ -1,3 +1,3 @@
 public interface IConsumable {
-    void Consume(ITamagotchi iTamagotchi);
+    void consume(Tamagotchi tamagotchi);
 }
