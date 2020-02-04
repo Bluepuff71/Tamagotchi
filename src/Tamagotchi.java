@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.Random;
-public class Tamagotchi implements ITamagotchi, IInteractable {
+public class Tamagotchi implements IInteractable {
     /**
      * The name of the Tamagotchi
      */
@@ -83,7 +83,7 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
     }
 
     @Override
-    public void Interact(ITamagotchi iTamagotchi) {
+    public void Interact(Tamagotchi tamagotchi) {
         System.out.println("Communication");
     }
 

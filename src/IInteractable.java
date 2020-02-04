@@ -1,3 +1,3 @@
 public interface IInteractable {
-    void Interact(ITamagotchi iTamagotchi);
+    void Interact(Tamagotchi tamagotchi);
 }
