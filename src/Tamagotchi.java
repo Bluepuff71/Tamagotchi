@@ -1,17 +1,59 @@
 import java.util.List;
 import java.util.Random;
 public class Tamagotchi implements ITamagotchi, IInteractable {
+    /**
+     * The name of the Tamagotchi
+     */
     private String name;
+
+    /**
+     * The current hunger (0-100)
+     */
     private int food;
+
+    /**
+     * The current thirst (0-100)
+     */
     private int water;
+
+    /**
+     * The current dirtiness (0-100)
+     */
     private int cleanliness;
+
+    /**
+     * The current value of the mood (0-100)
+     * Used to determine the mood state
+     * Do not use this directly!
+     */
     private int mood;
     //private img sprite
+
+    /**
+     * The amount of money the Tamagotchi has
+     */
     private int money;
+
+    /**
+     * The Tamagotchi's personality
+     */
     private Personality personality;
+
+    /**
+     * The Tamagotchi's difficulty multiplier
+     * Changes how fast the Tamagotchi's stats decrease.
+     */
     private int difficulty;
+
+    /**
+     * The inventory of the Tamagotchi
+     */
     private List<Item> inventory;
 
+    /**
+     * Creates a new Tamagotchi with default values and a random personality
+     * @param name the name of the Tamagotchi
+     */
     public Tamagotchi(String name){
         this.name = name;
         this.food = 100;
@@ -22,6 +64,10 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
         this.personality = generatePersonality();
     }
 
+    /**
+     * Generates a random personality and returns it
+     * @returns a random personality
+     */
     private Personality generatePersonality(){
         return Personality.values()[new Random().nextInt() * Personality.values().length];
     }
@@ -118,6 +164,10 @@ public class Tamagotchi implements ITamagotchi, IInteractable {
 
     @Override
     public String toString() {
-        return "Tamagotchi Stats and stuff";
+        return String.format("%s\n : %s" +
+                "Money: %d\n" +
+                "Food: %d\n" +
+                "Water: %d\n" +
+                "Cleanliness: %d\n", this.name, this.getMoodState(),this.money, this.food, this.water, this.cleanliness);
     }
 }
