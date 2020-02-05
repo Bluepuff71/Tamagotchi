@@ -1,7 +1,12 @@
+package game.ui;
+
 import java.awt.*;
 import java.util.EnumSet;
+import javatech.input.*;
+import javatech.ui.*;
+import javatech.ui.enums.*;
 
-public class MainMenu extends GUI{
+public class MainMenu extends GUI {
 
     private int selectedItem;
 
@@ -26,7 +31,7 @@ public class MainMenu extends GUI{
                 g.drawString("First, you need to name it!", 300, 80);
                 name = TextGUI.textField(g, "Enter its name: ", name, input, EnumSet.of(TextFieldFilterFlags.ALPHABETIC, TextFieldFilterFlags.DIGIT),300, 110);
                 if(input.getKeyDown("Enter")){
-                   //new Game(new Tamagotchi(name));
+                   //new game.core.Game(new Tamagotchi(name));
                    g.drawString("Test", 50,100);
                    exit();
                 }

@@ -1,3 +1,8 @@
+package javatech.ui;
+
+import javatech.input.Input;
+import javatech.ui.enums.TextFieldFilterFlags;
+
 import java.awt.*;
 import java.util.EnumSet;
 

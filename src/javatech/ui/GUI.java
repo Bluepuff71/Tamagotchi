@@ -1,3 +1,7 @@
+package javatech.ui;
+
+import javatech.input.Input;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -88,7 +92,7 @@ public abstract class GUI extends Canvas implements Runnable {
     }
 
     /**
-     * Method for drawing double buffered GUI's
+     * Method for drawing double buffered javatech.ui.GUI's
      * @param g the graphics to draw onto
      * @param input the input for listening for key presses
      */

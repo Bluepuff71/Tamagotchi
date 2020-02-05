@@ -1,3 +1,8 @@
+package game.core;
+
+import javatech.ui.GUI;
+import javatech.input.Input;
+
 import java.awt.*;
 
 public class Game extends GUI {

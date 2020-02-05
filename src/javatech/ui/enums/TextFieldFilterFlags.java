@@ -1,3 +1,5 @@
+package javatech.ui.enums;
+
 import java.util.EnumSet;
 
 public enum TextFieldFilterFlags {

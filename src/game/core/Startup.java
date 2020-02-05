@@ -1,7 +1,11 @@
+package game.core;
+
+import game.ui.MainMenu;
+
 import javax.swing.*;
 
 public class Startup extends JFrame {
-    //Startup Method, we can ignore
+    //game.core.Startup Method, we can ignore
     public static void main(String[] args){
         new Startup();
     }
