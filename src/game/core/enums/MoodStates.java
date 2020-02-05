@@ -1,3 +1,5 @@
+package game.core.enums;
+
 public enum MoodStates {
     DEAD,
     SAD,

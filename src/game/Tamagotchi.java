@@ -1,5 +1,11 @@
+package game;
+
+import game.core.enums.*;
+import game.core.abstracts.*;
+import game.core.interfaces.IInteractable;
 import java.util.List;
 import java.util.Random;
+
 public final class Tamagotchi implements IInteractable {
     /**
      * The name of the Tamagotchi
