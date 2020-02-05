@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.EnumSet;
 
 public class MainMenu extends GUI{
 
@@ -23,7 +24,7 @@ public class MainMenu extends GUI{
             case 0:{
                 g.drawString("Time to create your Tamagotchi", 300, 50);
                 g.drawString("First, you need to name it!", 300, 80);
-                name = TextGUI.textField(g, "Enter its name: ", name, input, 300, 110);
+                name = TextGUI.textField(g, "Enter its name: ", name, input, EnumSet.of(TextFieldFilterFlags.ALPHABETIC, TextFieldFilterFlags.DIGIT),300, 110);
                 if(input.getKeyDown("Enter")){
                    //new Game(new Tamagotchi(name));
                    g.drawString("Test", 50,100);
