@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.Random;
-public class Tamagotchi implements IInteractable {
+public final class Tamagotchi implements IInteractable {
     /**
      * The name of the Tamagotchi
      */
