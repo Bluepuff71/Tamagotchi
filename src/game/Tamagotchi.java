@@ -1,3 +1,8 @@
+package game;
+
+import game.core.enums.*;
+import game.core.interfaces.IInteractable;
+
 public class Tamagotchi implements IInteractable {
     private String name;
     private int food;

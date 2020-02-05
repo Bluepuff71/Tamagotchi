@@ -1,3 +1,5 @@
+package game.core.abstracts;
+
 public abstract class Item {
     private String name;
     private String description;
