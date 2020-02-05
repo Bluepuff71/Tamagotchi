@@ -1,4 +1,4 @@
-package game.core;
+package game.ui;
 
 import javatech.ui.GUI;
 import javatech.input.Input;
