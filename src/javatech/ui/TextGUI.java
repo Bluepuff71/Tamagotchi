@@ -33,7 +33,7 @@ public final class TextGUI {
         }
     }
 
-    public static String textField(Graphics g, String label, String text, Input input, EnumSet<TextFieldFilterFlags> textFilter, int x, int y){
+    public static String textField(Graphics g, int x, int y, Input input, String label, String text, EnumSet<TextFieldFilterFlags> textFilter){
         String temp = input.getKey();
         switch (temp){
             case "\b":
