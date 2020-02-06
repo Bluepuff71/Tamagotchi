@@ -1,27 +1,13 @@
 package game.core;
 
+
 import game.ui.MainMenu;
+import javatech.ui.Window;
 
-import javax.swing.*;
-
-public class Startup extends JFrame {
-    //game.core.Startup Method, we can ignore
+public class Startup {
     public static void main(String[] args){
-        new Startup();
-    }
-
-    public Startup(){
-
-        super("Tamagotchi");
-        setSize(800, 600);
-
-        MainMenu mainMenu = new MainMenu();
-
-        mainMenu.setFocusable(true);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().add(mainMenu);
-        setVisible(true);
+        Window window = new Window("Tamagotchi", 800, 600, false);
+        window.drawGUI(new MainMenu());
     }
 
 

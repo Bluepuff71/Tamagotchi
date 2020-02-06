@@ -6,7 +6,7 @@ import javatech.ui.enums.TextFieldFilterFlags;
 import java.awt.*;
 import java.util.EnumSet;
 
-public class TextGUI {
+public final class TextGUI {
 
     private static int clamp(int num, int max){
         return ((num-1) % max + max) % max;

@@ -2,6 +2,7 @@ package javatech.ui;
 
 import javatech.input.Input;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -83,12 +84,17 @@ public abstract class GUI extends Canvas implements Runnable {
         }
         graphics2D.drawImage(back, null, 0,0);
         if(isExiting){
+            getWindow().remove(this);
             guiThread.interrupt();
         }
     }
 
     protected final void exit(){
         this.isExiting = true;
+    }
+
+    protected final Window getWindow(){
+        return (Window) SwingUtilities.getWindowAncestor(this);
     }
 
     /**
