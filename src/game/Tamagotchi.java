@@ -3,10 +3,12 @@ package game;
 import game.core.enums.*;
 import game.core.abstracts.*;
 import game.core.interfaces.IInteractable;
+import game.core.interfaces.IPerishable;
+
 import java.util.List;
 import java.util.Random;
 
-public final class Tamagotchi implements IInteractable {
+public final class Tamagotchi implements IInteractable, IPerishable {
     /**
      * The name of the Tamagotchi
      */
@@ -81,7 +83,7 @@ public final class Tamagotchi implements IInteractable {
     /**
      * Decrements all the stats by 1
      */
-    public void decrimentStats(){
+    public void decrementStats(){
         this.food = this.food - 1;
         this.water = this.water - 1;
         this.cleanliness = this.cleanliness - 1;
@@ -89,7 +91,7 @@ public final class Tamagotchi implements IInteractable {
     }
 
     @Override
-    public void Interact(Tamagotchi tamagotchi) {
+    public void interact(Tamagotchi tamagotchi) {
         System.out.println("Communication");
     }
 
