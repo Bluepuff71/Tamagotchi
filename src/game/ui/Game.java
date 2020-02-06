@@ -57,6 +57,7 @@ public class Game extends GUI {
                 break;
             case 4:
                 System.out.println("Communicate");
+                Communicate speech = new Communication(tamagotchi.getMoodState(),tamagotchi.getPersonality());
                 break;
             default:
                 break;
