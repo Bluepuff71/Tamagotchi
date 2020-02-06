@@ -31,7 +31,7 @@ public final class TextGUI {
      * @return the item number that was selected. -1 otherwise.
      */
     public static int selectableMenu(Graphics g, int x, int y, Input input, Color original, Color selected, String keyText, int selectedItem, String title, String... options){
-        selectedItem = selectedItem - 2;
+        selectedItem = selectedItem - (options.length - 1);
         selectedItem = clamp(selectedItem, options.length);
         g.drawString(title, x, y);
         g.drawString(String.valueOf(selectedItem), 70, 70);
