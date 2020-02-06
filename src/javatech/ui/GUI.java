@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Provides a powerful and simple to use wrapper for creating UIs within Windows
+ * @see Window
+ */
 public abstract class GUI extends Canvas implements Runnable {
 
     private Thread guiThread;
@@ -20,7 +24,9 @@ public abstract class GUI extends Canvas implements Runnable {
 
     private boolean isExiting;
 
-
+    /**
+     * Creates a new GUI with a black background and white text color.
+     */
     public GUI(){
         this.backgroundColor = Color.BLACK;
         this.textColor = Color.WHITE;
@@ -30,6 +36,11 @@ public abstract class GUI extends Canvas implements Runnable {
         this.setupInput();
     }
 
+    /**
+     * Creates a new GUI.
+     * @param backgroundColor the initial color of the background
+     * @param textColor the initial color of text
+     */
     public GUI(Color backgroundColor, Color textColor){
         this.backgroundColor = backgroundColor;
         this.textColor = textColor;
@@ -48,6 +59,7 @@ public abstract class GUI extends Canvas implements Runnable {
         this.input = new Input();
         addKeyListener(input); //starts key listening thread
     }
+
 
     @Override
     public final void run() {
@@ -89,16 +101,24 @@ public abstract class GUI extends Canvas implements Runnable {
         }
     }
 
+    /**
+     * Exits the GUI and kills the thread.
+     */
     protected final void exit(){
         this.isExiting = true;
     }
 
+    /**
+     * Gets the Window that the GUI is contained within
+     * @return the Window this GUI is contained within
+     * @see Window
+     */
     protected final Window getWindow(){
         return (Window) SwingUtilities.getWindowAncestor(this);
     }
 
     /**
-     * Method for drawing double buffered javatech.ui.GUI's
+     * Method for drawing double buffered GUI's
      * @param g the graphics to draw onto
      * @param input the input for listening for key presses
      */
