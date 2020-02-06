@@ -17,7 +17,6 @@ public class MainMenu extends GUI {
     @Override
     public void draw(Graphics g, Input input) {
         g.setFont(new Font("Impact", Font.PLAIN, 30));
-        //Not Working yet
         if(input.getKeyDown("W")){
             selectedItem--;
         }

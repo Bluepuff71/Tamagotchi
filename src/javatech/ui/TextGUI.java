@@ -8,10 +8,17 @@ import java.util.EnumSet;
 
 public class TextGUI {
 
+    private static int clamp(int num, int max){
+        return ((num-1) % max + max) % max;
+    }
+
     public static int selectableMenu(Graphics g, int x, int y, Input input, Color original, Color selected, String keyText, int selectedItem, String title, String... options){
+        selectedItem = selectedItem - 2;
+        selectedItem = clamp(selectedItem, options.length);
         g.drawString(title, x, y);
+        g.drawString(String.valueOf(selectedItem), 70, 70);
         for (int i = 0; i < options.length; i++) {
-            if(i == selectedItem % options.length){
+            if(i == selectedItem){
                 g.setColor(selected);
             } else {
                 g.setColor(original);
@@ -20,7 +27,7 @@ public class TextGUI {
         }
         g.setColor(original);
         if(input.getKeyDown(keyText)){
-            return selectedItem % options.length;
+            return selectedItem;
         } else {
             return -1;
         }
