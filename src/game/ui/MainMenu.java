@@ -10,7 +10,7 @@ import javatech.ui.enums.*;
 
 public class MainMenu extends GUI {
 
-    private int selectedItem;
+    private int selectedItem = 0;
 
     private int mainSelection = -1;
 
