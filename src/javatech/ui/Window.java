@@ -14,6 +14,7 @@ public final class Window extends JFrame {
 
     public void drawGUI(GUI toDraw){
         getContentPane().add(toDraw);
+        setFocusable(true);
         validate();
     }
 }

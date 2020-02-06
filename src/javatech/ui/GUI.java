@@ -34,6 +34,7 @@ public abstract class GUI extends Canvas implements Runnable {
         setVisible(true);
         this.setupGUIThread();
         this.setupInput();
+        setFocusable(true);
     }
 
     /**
@@ -48,6 +49,7 @@ public abstract class GUI extends Canvas implements Runnable {
         setVisible(true);
         this.setupGUIThread();
         this.setupInput();
+        setFocusable(true);
     }
 
     private void setupGUIThread(){
