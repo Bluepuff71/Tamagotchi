@@ -1,3 +1,8 @@
+package game.core.abstracts;
+
+import game.Tamagotchi;
+import game.core.interfaces.IConsumable;
+
 /**
  * Base class for any item that can be drunk
  */
