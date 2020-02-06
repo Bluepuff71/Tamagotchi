@@ -8,6 +8,7 @@ public class Communicate extends Tamagotchi{
         currentMood = None;
         currentPersonality = None;
     }
+
     public Communicate(MoodStates mood, Personality personality){
         //Takes in the personality/mood to give a different set of communcations
         this.currentMood = mood;
@@ -16,15 +17,7 @@ public class Communicate extends Tamagotchi{
 
     public enum getTamagotchiSpeech(){
         enum validTamagotchiSpeech;
-        if(this.currentPersonality == NOT_NORMAL){//Uses not normal speech
-            //looping through the tamagotchi speech options -> have to figure out how to get every other one
-        }
-        else if(this.currentPersonality == NOT_NORMAL){//uses normal speech
 
-        }
-        else{//uses normal speech
-
-        }
         return validTamagotchiSpeech;
     }
 }

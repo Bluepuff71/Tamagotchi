@@ -11,8 +11,7 @@ public class Tamagotchi implements IInteractable {
 
     @Override
     public void Interact(Tamagotchi tamagotchi) {
-        Communicate Speech = new Communicate(Tamagotchi.getMoodState(), Tamagotchi.getPersonality());
-
+        Communicate Speech = new Communicate(tamagotchi.getMoodState(), tamagotchi.getPersonality());
     }
 
     //Getters and Setters
