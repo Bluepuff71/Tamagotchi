@@ -1,6 +1,7 @@
 package game.ui;
 
 import game.Tamagotchi;
+import javatech.GameThread;
 import javatech.ui.GUI;
 import javatech.input.Input;
 import javatech.ui.TextGUI;
@@ -17,6 +18,7 @@ public class Game extends GUI {
 
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
+        new GameThread(tamagotchi);
     }
 
     @Override
