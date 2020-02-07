@@ -19,12 +19,6 @@ public class MainMenu extends GUI {
     @Override
     public void draw(Graphics g, Input input) {
         g.setFont(new Font("Impact", Font.PLAIN, 30));
-        if(input.getKeyDown("W")){
-            selectedItem--;
-        }
-        if(input.getKeyDown("S")){
-            selectedItem++;
-        }
         g.drawString(String.valueOf(mainSelection), 50,50);
         switch (mainSelection){
             case 0:{
@@ -46,7 +40,7 @@ public class MainMenu extends GUI {
                 break;
             }
             default:{
-                mainSelection = TextGUI.selectableMenu(g, 300, 50, input, Color.white, Color.GREEN,"Enter", selectedItem, "Tamagotchi V0.0.1",
+                mainSelection = TextGUI.selectableMenu(g, 300, 50, input, "W", "S", "Enter", Color.white, Color.GREEN, selectedItem, "Tamagotchi V0.0.1",
                         "[1] Create a Tamagotchi",
                         "[2] Load a Tamagotchi",
                         "[3] Quit");

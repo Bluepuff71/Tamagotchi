@@ -22,15 +22,22 @@ public final class TextGUI {
      * @param x the x-position on the GUI
      * @param y the y-position on the GUI
      * @param input the input cf the GUI
+     * @param upKey the keyName for going up in the menu
+     * @param downKey the keyName for going down in the menu
+     * @param selectKey the keyName for selecting
      * @param original the color of the unselected text
      * @param selected the color of the selected text
-     * @param keyText the keyName for selecting
      * @param selectedItem the integer to use for selection
      * @param title the title displayed above the options
      * @param options the options of the menu
      * @return the item number that was selected. -1 otherwise.
      */
-    public static int selectableMenu(Graphics g, int x, int y, Input input, Color original, Color selected, String keyText, int selectedItem, String title, String... options){
+    public static int selectableMenu(Graphics g, int x, int y, Input input, String upKey, String downKey, String selectKey, Color original, Color selected, int selectedItem, String title, String... options){
+        if(input.getKeyDown(upKey)){
+            selectedItem--;
+        } else if(input.getKeyDown(downKey)){
+            selectedItem++;
+        }
         selectedItem = selectedItem - (options.length - 1);
         selectedItem = clamp(selectedItem, options.length);
         g.drawString(title, x, y);
@@ -44,7 +51,7 @@ public final class TextGUI {
             g.drawString(options[i], x, y + ((i+1) * g.getFont().getSize()));
         }
         g.setColor(original);
-        if(input.getKeyDown(keyText)){
+        if(input.getKeyDown(selectKey)){
             return selectedItem;
         } else {
             return -1;

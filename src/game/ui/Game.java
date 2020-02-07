@@ -23,11 +23,6 @@ public class Game extends GUI {
 
     @Override
     public void draw(Graphics g, Input input) {
-        if(input.getKeyDown("W")){
-            selectedItem--;
-        } else if(input.getKeyDown("S")){
-            selectedItem++;
-        }
         g.setFont(new Font("Impact", Font.PLAIN, 30));
         g.setColor(Color.WHITE);
         g.drawString(String.format("%s : %s", tamagotchi.getName(), tamagotchi.getMoodState()), 300,120);
@@ -35,8 +30,7 @@ public class Game extends GUI {
         g.drawString(String.format("Food: %d", tamagotchi.getFood()), 300,180);
         g.drawString(String.format("Water: %d", tamagotchi.getWater()), 300,210);
         g.drawString(String.format("Cleanliness: %d", tamagotchi.getCleanliness()), 300,240);
-        mainSelection = TextGUI.selectableMenu(g, 300, 270, input, Color.WHITE, Color.GREEN, "Enter", selectedItem,
-                "What would you like to do?",
+        mainSelection = TextGUI.selectableMenu(g, 300, 270, input, "W", "S", "Enter", Color.WHITE, Color.GREEN,  selectedItem, "What would you like to do?",
                 "Feed",
                 "Water",
                 "Clean",
