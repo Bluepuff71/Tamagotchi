@@ -10,11 +10,14 @@
 # IntelliJ files
 .idea/
 
-# META-INF files
-META-INF/
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+#Don't ignore lib folder
+!/lib/*.jar
+
+# Ignore bin
+bin/
 
 # Package Files #
 *.jar

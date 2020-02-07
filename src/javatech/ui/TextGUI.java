@@ -2,6 +2,7 @@ package javatech.ui;
 
 import javatech.input.Input;
 import javatech.ui.enums.TextFieldFilterFlags;
+import org.javatuples.Pair;
 
 import java.awt.*;
 import java.util.EnumSet;
@@ -16,21 +17,12 @@ public final class TextGUI {
         return ((num-1) % max + max) % max;
     }
 
-    /**
-     * Creates a menu where each selection can be flipped through.
-     * @param g graphics of the GUI
-     * @param x the x-position on the GUI
-     * @param y the y-position on the GUI
-     * @param input the input cf the GUI
-     * @param original the color of the unselected text
-     * @param selected the color of the selected text
-     * @param keyText the keyName for selecting
-     * @param selectedItem the integer to use for selection
-     * @param title the title displayed above the options
-     * @param options the options of the menu
-     * @return the item number that was selected. -1 otherwise.
-     */
-    public static int selectableMenu(Graphics g, int x, int y, Input input, Color original, Color selected, String keyText, int selectedItem, String title, String... options){
+    //TODO Update docs
+    public static Pair<Integer, Boolean> selectableMenu(Graphics g, int x, int y, Input input, String upKey, String downKey, String selectKey, Color original, Color selected, Pair<Integer, Boolean> pair, String title, String... options){
+        if(pair != null && pair.getValue1()){
+            return pair;
+        }
+        int selectedItem = (pair != null) ? pair.getValue0() : 0;
         selectedItem = selectedItem - (options.length - 1);
         selectedItem = clamp(selectedItem, options.length);
         g.drawString(title, x, y);
@@ -44,10 +36,16 @@ public final class TextGUI {
             g.drawString(options[i], x, y + ((i+1) * g.getFont().getSize()));
         }
         g.setColor(original);
-        if(input.getKeyDown(keyText)){
-            return selectedItem;
+        if(input.getKeyDown(upKey)){
+            selectedItem--;
+        } else if(input.getKeyDown(downKey)){
+            selectedItem++;
+        }
+        if(input.getKeyDown(selectKey)){
+            input.flush();
+            return new Pair<Integer, Boolean>(selectedItem, true);
         } else {
-            return -1;
+            return new Pair<Integer,Boolean>(selectedItem, false);
         }
     }
 

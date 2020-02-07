@@ -41,6 +41,14 @@ public class Input implements KeyListener {
         return key;
     }
 
+    /**
+     * Flushes the key buffer.
+     */
+    public void flush(){
+        keys.clear();
+        lastKeyPressed = "";
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
         lastKeyPressed = String.valueOf(e.getKeyChar());
