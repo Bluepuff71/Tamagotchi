@@ -5,10 +5,11 @@ import game.core.abstracts.*;
 import game.core.interfaces.IInteractable;
 import game.core.interfaces.IPerishable;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
+public final class Tamagotchi implements IInteractable, IPerishable, Serializable {
 
-public final class Tamagotchi implements IInteractable, IPerishable {
     /**
      * The name of the Tamagotchi
      */

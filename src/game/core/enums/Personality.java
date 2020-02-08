@@ -1,6 +1,8 @@
 package game.core.enums;
 
-public enum Personality {
+import java.io.Serializable;
+
+public enum Personality implements Serializable {
     NORMAL,
     NOT_NORMAL
 }
