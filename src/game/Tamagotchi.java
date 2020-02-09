@@ -92,7 +92,7 @@ public final class Tamagotchi implements IInteractable, IPerishable {
 
     @Override
     public void interact(Tamagotchi tamagotchi) {
-        @// TODO: 2/6/2020 Add communication to base interaction?
+        // TODO: 2/6/2020 Add communication to base interaction?
     }
 
     //Getters and Setters
