@@ -59,6 +59,7 @@ public class Game extends GUI {
                 break;
             case 4:
                 System.out.println("Communicate"); 
+                
                 break;
             default:
                 break;

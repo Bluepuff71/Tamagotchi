@@ -4,67 +4,10 @@ package game.core.enums.speech;
 
 public class NormalSpeech{
     
-    public NormalSpeech(){
-        
-    }
-    public enum DEAD{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
-
-        private String words;
-
-        DEAD(String words) {
-            this.words = words;
-        }
-
-        public String getWords() {
-            return words;
-        }
-    }
-    public enum SAD{
-        A ("*Cries* Hi..."),
-        B   ("Feeling sad"),
-        C   ("That would be nice! *Wipes tears*");
-
-        private String words;
-
-        SAD(String words) {
-            this.words = words;
-        }
-
-        public String getWords() {
-            return words;
-        }
-    }
-    public enum NEUTRAL{
-        A ("Hi"),
-        B   ("Doing ok."),
-        C   ("Why not!");
-
-        private String words;
-
-        NEUTRAL(String words) {
-            this.words = words;
-        }
-
-        public String getWords() {
-            return words;
-        }
-    }
-    public enum HAPPY{
-        A ("Hello!!"),
-        B   ("Doing great!!"),
-        C   ("Always!!");
-
-        private String words;
-
-        HAPPY(String words) {
-            this.words = words;
-        }
-
-        public String getWords() {
-            return words;
-        }
-    }
+    public static String[][] speech = {
+        {"DEAD","*Cries* Hi...","Hi","Hello!!"},//A
+        {"DEAD","Feeling sad","Doing ok.","Doing great!!"},//B
+        {"DEAD","That would be nice! *Wipes tears*","Why not!","Always!!"}//C
+    };
+    
 }
