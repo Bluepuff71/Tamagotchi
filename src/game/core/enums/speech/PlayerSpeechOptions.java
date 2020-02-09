@@ -1,16 +1,11 @@
 package game.core.enums.speech;
 
+public enum PlayerSpeechOptions {
+    A("Hello"), B("How are you?"), C("Want to play?");
 
-//Surrounded with class just in case differernt types of speech added
-public class PlayerSpeechOptions{
-    public enum NormalSpeech{
-        A("Hello"),
-        B("How are you?"),
-        C("Want to play?");
+    private String words;
 
-        private String words;
-
-        NormalSpeech(String words) {
+    PlayerSpeechOptions(String words) {
             this.words = words;
         }
 
@@ -19,12 +14,4 @@ public class PlayerSpeechOptions{
         }
     }
 
-/*
-//Get all enums
-for(PlayerSpeechOptions speech : PlayerSpeechOptions.values())
-{
-    System.out.println(speech.name() + " :: "+ speech.getWords());
-}
- */
-}
 

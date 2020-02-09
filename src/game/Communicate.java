@@ -24,7 +24,9 @@ public class Communicate{
         this.currentMood = mood;
         this.currentPersonality = personality;
     }
-
+    public String getSpeechAnswer(){
+        
+    }
 
 
 }
