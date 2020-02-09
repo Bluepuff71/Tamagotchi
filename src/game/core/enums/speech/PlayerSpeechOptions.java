@@ -1,3 +1,6 @@
+package game.core.enums.speech;
+
+
 //Surrounded with class just in case differernt types of speech added
 public class PlayerSpeechOptions{
     public enum NormalSpeech{

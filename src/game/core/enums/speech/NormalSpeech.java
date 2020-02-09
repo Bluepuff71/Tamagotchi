@@ -1,4 +1,6 @@
-//Speech options for Normal Personality
+package game.core.enums.speech;//Speech options for Normal Personality
+
+
 public class NormalSpeech{
     public enum DEAD{
         A ("DEAD"),
@@ -12,7 +14,7 @@ public class NormalSpeech{
 
         public String getName() { return e_name; }
     }
-    @// TODO: 2/6/2020 Create different speech for each mood Normal Personality
+    // TODO: 2/6/2020 Create different speech for each mood Normal Personality
     public enum SAD{
         A ("DEAD"),
         B   ("DEAD"),
