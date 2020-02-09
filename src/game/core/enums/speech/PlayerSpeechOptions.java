@@ -12,7 +12,7 @@ public enum PlayerSpeechOptions {
         public String getWords() {
             return words;
         }
-    }
+}
 
 
 // System.out.println(PlayerSpeechOptions.A.getWords()); <-How to access string in A
