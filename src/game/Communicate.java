@@ -1,10 +1,9 @@
 package game;
+
 import game.core.enums.MoodStates;
 import game.core.enums.Personality;
 import game.core.enums.speech.NormalSpeech;
-// TODO: Add methods to control which set of speech options will be returned to the UI
-import game.core.enums.speech.PlayerSpeechOptions;
-
+import game.core.enums.speech.NotNormalSpeech;
 
 
 /*
@@ -53,8 +52,14 @@ public class Communicate{
         }
     }
     public String getSpeechAnswer(String playerChoice){//pass in the players choice in a string
-        //TODO: return right string without switch statements
-        return NormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
+        switch(this.currentPersonality){
+            case NORMAL:
+            return NormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
+            case NOT_NORMAL:
+            return NotNormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
+            default:
+            return NormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
+        }    
     }
 }
 /*
