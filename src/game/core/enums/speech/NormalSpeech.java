@@ -1,5 +1,6 @@
-package game.core.enums.speech;//Speech options for Normal Personality
+package game.core.enums.speech;
 
+//Speech options for Normal Personality
 
 public class NormalSpeech{
     public enum DEAD{
@@ -14,11 +15,10 @@ public class NormalSpeech{
 
         public String getName() { return e_name; }
     }
-    // TODO: 2/6/2020 Create different speech for each mood Normal Personality
     public enum SAD{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("*Cries* Hi..."),
+        B   ("Feeling sad"),
+        C   ("That would be nice! *Wipes tears*");
 
         private final String e_name;
 
@@ -28,9 +28,9 @@ public class NormalSpeech{
         public String getName() { return e_name; }
     }
     public enum NEUTRAL{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("Hi"),
+        B   ("Doing ok."),
+        C   ("Why not!");
 
         private final String e_name;
 
@@ -40,9 +40,9 @@ public class NormalSpeech{
         public String getName() { return e_name; }
     }
     public enum HAPPY{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("Hello!!"),
+        B   ("Doing great!!"),
+        C   ("Always!!");
 
         private final String e_name;
 
