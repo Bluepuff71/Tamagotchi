@@ -15,3 +15,6 @@ public enum PlayerSpeechOptions {
     }
 
 
+// System.out.println(PlayerSpeechOptions.A.getWords()); <-How to access string in A
+// System.out.println(PlayerSpeechOptions.B.getWords()); <-How to access string in B
+// System.out.println(PlayerSpeechOptions.C.getWords()); <-How to access string in C

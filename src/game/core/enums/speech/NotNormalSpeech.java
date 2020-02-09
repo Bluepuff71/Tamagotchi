@@ -9,47 +9,59 @@ public class NotNormalSpeech{
         B   ("DEAD"),
         C   ("DEAD");
 
-        private final String e_name;
+        private String words;
 
-        DEAD(String name)
-        { this.e_name = name; }
+        DEAD(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum SAD{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("*Cries* Hi..."),
+        B   ("Feeling sad"),
+        C   ("That would be nice! *Wipes tears*");
 
-        private final String e_name;
+        private String words;
 
-        SAD(String name)
-        { this.e_name = name; }
+        SAD(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum NEUTRAL{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("Hi"),
+        B   ("Doing ok."),
+        C   ("Why not!");
 
-        private final String e_name;
+        private String words;
 
-        NEUTRAL(String name)
-        { this.e_name = name; }
+        NEUTRAL(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum HAPPY{
-        A ("DEAD"),
-        B   ("DEAD"),
-        C   ("DEAD");
+        A ("Hello!!"),
+        B   ("Doing great!!"),
+        C   ("Always!!");
 
-        private final String e_name;
+        private String words;
 
-        HAPPY(String name)
-        { this.e_name = name; }
+        HAPPY(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
 }

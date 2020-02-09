@@ -3,52 +3,68 @@ package game.core.enums.speech;
 //Speech options for Normal Personality
 
 public class NormalSpeech{
+    
+    public NormalSpeech(){
+        
+    }
     public enum DEAD{
         A ("DEAD"),
         B   ("DEAD"),
         C   ("DEAD");
 
-        private final String e_name;
+        private String words;
 
-        DEAD(String name)
-        { this.e_name = name; }
+        DEAD(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum SAD{
         A ("*Cries* Hi..."),
         B   ("Feeling sad"),
         C   ("That would be nice! *Wipes tears*");
 
-        private final String e_name;
+        private String words;
 
-        SAD(String name)
-        { this.e_name = name; }
+        SAD(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum NEUTRAL{
         A ("Hi"),
         B   ("Doing ok."),
         C   ("Why not!");
 
-        private final String e_name;
+        private String words;
 
-        NEUTRAL(String name)
-        { this.e_name = name; }
+        NEUTRAL(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
     public enum HAPPY{
         A ("Hello!!"),
         B   ("Doing great!!"),
         C   ("Always!!");
 
-        private final String e_name;
+        private String words;
 
-        HAPPY(String name)
-        { this.e_name = name; }
+        HAPPY(String words) {
+            this.words = words;
+        }
 
-        public String getName() { return e_name; }
+        public String getWords() {
+            return words;
+        }
     }
 }

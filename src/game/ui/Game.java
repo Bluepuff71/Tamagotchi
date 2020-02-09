@@ -1,6 +1,8 @@
 package game.ui;
 
+import game.Communicate;
 import game.Tamagotchi;
+import game.core.enums.speech.PlayerSpeechOptions;
 import javatech.GameThread;
 import javatech.ui.GUI;
 import javatech.input.Input;
@@ -56,7 +58,7 @@ public class Game extends GUI {
                 System.out.println("Play");
                 break;
             case 4:
-                System.out.println("Communicate");
+                System.out.println("Communicate"); 
                 break;
             default:
                 break;
