@@ -39,7 +39,7 @@ public class Communicate{
             return 3;
         }
     }
-    private int convertPlayerSelection(String Choice){
+    private int convertPlayerSelection(String Choice){//converts from player string to number for array
         switch(Choice){
             case "A":
             return 0;
