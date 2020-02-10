@@ -2,6 +2,9 @@ package javatech;
 
 import game.core.interfaces.IPerishable;
 
+/**
+ * The thread in charge of decrementing perishables
+ */
 public class GameThread implements Runnable {
 
     private Thread gameThread;

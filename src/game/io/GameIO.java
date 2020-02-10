@@ -8,10 +8,20 @@ import java.nio.file.Path;
 import java.io.IOException;
 import java.util.ArrayList;
 
-//TODO Documentation
+/**
+ * Contains utilites for game-related IO
+ */
 public class GameIO {
 
+    /**
+     * The default path to the tamagotchi data folder
+     */
     private static final Path TAMAGOTCHI_PATH = Path.of("PetData/");
+
+    /**
+     * Saves the specified tamagotchi to the tamagotchi data folder in the format {@code UUID.dat}
+     * @param tamagotchi the tamagotchi to save
+     */
     public static void SaveTamagotchi(Tamagotchi tamagotchi){
         try{
             BinarySerialization.Serialize(tamagotchi, new File(TAMAGOTCHI_PATH.toString(), tamagotchi.getUuid().toString() + ".dat"));
@@ -21,6 +31,10 @@ public class GameIO {
         }
     }
 
+    /**
+     * Loads all tamagotchies in the tamagotchi data folder
+     * @return an {@code Arraylist} containing all the loaded tamagotchies
+     */
     public static ArrayList<Tamagotchi> LoadAllTamagotchies(){
         ArrayList<Tamagotchi> tamagotchies = new ArrayList<>();
         try{
