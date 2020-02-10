@@ -5,10 +5,18 @@ import game.core.abstracts.*;
 import game.core.interfaces.IInteractable;
 import game.core.interfaces.IPerishable;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
-public final class Tamagotchi implements IInteractable, IPerishable {
+public final class Tamagotchi implements IInteractable, IPerishable, Serializable {
+
+    /**
+     * The universally unique identifier (UUID) of the Tamagotchi
+     */
+    private final UUID uuid;
+
     /**
      * The name of the Tamagotchi
      */
@@ -63,6 +71,7 @@ public final class Tamagotchi implements IInteractable, IPerishable {
      * @param name the name of the Tamagotchi
      */
     public Tamagotchi(String name){
+        this.uuid = UUID.randomUUID();
         this.name = name;
         this.food = 100;
         this.water = 100;
@@ -96,6 +105,12 @@ public final class Tamagotchi implements IInteractable, IPerishable {
     }
 
     //Getters and Setters
+
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public String getName() {
         return name;
     }
