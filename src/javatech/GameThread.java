@@ -8,8 +8,19 @@ public class GameThread implements Runnable {
 
     private IPerishable perishable;
 
+    private int sleepTime;
+    
+    public GameThread(IPerishable perishable, int sleepTime){
+        GameThreadFactory(perishable, sleepTime);
+    }
+
     public GameThread(IPerishable perishable){
+        GameThreadFactory(perishable, 10000);
+    }
+
+    private void GameThreadFactory(IPerishable perishable, int sleepTime){
         this.perishable = perishable;
+        this.sleepTime = sleepTime;
         gameThread = new Thread(this);
         gameThread.start();
     }
@@ -18,7 +29,7 @@ public class GameThread implements Runnable {
     public void run() {
         try {
             while (!gameThread.isInterrupted()) {
-                Thread.sleep(10000);
+                Thread.sleep(sleepTime);
                 perishable.decrementStats();
             }
         } catch (InterruptedException ignore) {
