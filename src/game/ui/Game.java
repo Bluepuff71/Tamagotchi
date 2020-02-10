@@ -1,6 +1,8 @@
 package game.ui;
 
+import game.Communicate;
 import game.Tamagotchi;
+import game.core.enums.speech.PlayerSpeechOptions;
 import javatech.GameThread;
 import javatech.ui.GUI;
 import javatech.input.Input;
