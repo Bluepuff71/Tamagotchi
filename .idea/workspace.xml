@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d872a712-bbd2-4303-bc7b-c7054060dfe2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="464">
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -91,10 +92,9 @@
         <entry file="file://$PROJECT_DIR$/src/javatech/ui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="629">
-              <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
               <folding>
                 <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#642#643#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -353,12 +353,12 @@
       <workItem from="1581109254345" duration="127000" />
       <workItem from="1581361474277" duration="281000" />
       <workItem from="1581368394130" duration="2895000" />
-      <workItem from="1581440946869" duration="144000" />
+      <workItem from="1581440946869" duration="380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46891000" />
+    <option name="totallyTimeSpent" value="47127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,6 +371,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.18423107" />
       <window_info id="Structure" order="1" sideWeight="0.50164473" side_tool="true" weight="0.18423107" />
@@ -518,10 +519,9 @@
     <entry file="file://$PROJECT_DIR$/src/javatech/ui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
-          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
           <folding>
             <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -558,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="464">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
         </state>
       </provider>
     </entry>
