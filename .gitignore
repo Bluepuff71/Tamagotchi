@@ -1,3 +1,6 @@
+# Workspace
+.idea/workspace.xml
+
 # Compiled class file
 *.class
 
@@ -7,7 +10,6 @@
 # BlueJ files
 *.ctxt
 
-.idea/workspace.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
