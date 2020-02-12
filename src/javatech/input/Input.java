@@ -52,6 +52,9 @@ public class Input implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         lastKeyPressed = String.valueOf(e.getKeyChar());
+        if(lastKeyPressed.equals("\r") || lastKeyPressed.equals("\n")){
+            lastKeyPressed = "Enter";
+        }
     }
 
     @Override
