@@ -5,6 +5,9 @@ import game.core.enums.Personality;
 import game.core.enums.speech.NormalSpeech;
 import game.core.enums.speech.NotNormalSpeech;
 
+//TODO: create serialization/deserialization 
+//TODO: change from array to hashmap
+
 //created by Dalton
 /*
 This class is used to get the speech options for a given time in the game - based on personality and current mood
