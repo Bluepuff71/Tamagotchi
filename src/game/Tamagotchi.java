@@ -195,7 +195,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
 
     @Override
     public String toString() {
-        return String.format("%s\n : %s" +
+        return String.format("%s | %s\n" +
                 "Money: %d\n" +
                 "Food: %d\n" +
                 "Water: %d\n" +
