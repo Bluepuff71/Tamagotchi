@@ -20,6 +20,7 @@ public class Game extends GUI {
 
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
+        System.out.println(this.tamagotchi);
         new GameThread(tamagotchi);
     }
 

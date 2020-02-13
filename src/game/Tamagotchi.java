@@ -4,8 +4,10 @@ import game.core.enums.*;
 import game.core.abstracts.*;
 import game.core.interfaces.IInteractable;
 import game.core.interfaces.IPerishable;
+import game.items.Ball;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -64,7 +66,11 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     /**
      * The inventory of the Tamagotchi
      */
-    private List<Item> inventory;
+    private ArrayList<Item> inventory = new ArrayList<>(){
+        {
+            add(new Ball());
+        }
+    };
 
     /**
      * Creates a new Tamagotchi with default values and a random personality
@@ -157,6 +163,8 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
         }
     }
 
+    public int getMood() { return mood; }
+
     public void setMood(int mood) {
         this.mood = mood;
     }
@@ -187,10 +195,11 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
 
     @Override
     public String toString() {
-        return String.format("%s\n : %s" +
+        return String.format("%s | %s\n" +
                 "Money: %d\n" +
                 "Food: %d\n" +
                 "Water: %d\n" +
-                "Cleanliness: %d\n", this.name, this.getMoodState(),this.money, this.food, this.water, this.cleanliness);
+                "Cleanliness: %d\n" +
+                "Inventory: %s\n", this.name, this.getMoodState(),this.money, this.food, this.water, this.cleanliness, this.inventory.get(0).getName());
     }
 }
