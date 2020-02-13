@@ -157,6 +157,10 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
         }
     }
 
+    public int getMood() {
+        return mood;
+    }
+
     public void setMood(int mood) {
         this.mood = mood;
     }
