@@ -34,7 +34,7 @@ public final class TextGUI {
      * @return a tuple containing the currently highlighted item and if it has been selected
      */
     public static Pair<Integer, Boolean> selectableMenu(Graphics g, int x, int y, Input input, String upKey, String downKey, String selectKey, Color original, Color selected, Pair<Integer, Boolean> pair, String title, String... options){
-        if(pair != null && pair.getValue1()){
+        if((pair != null && pair.getValue1()) || options == null){
             return pair;
         }
         int selectedItem = (pair != null) ? pair.getValue0() : 0;
@@ -88,6 +88,7 @@ public final class TextGUI {
             case "\t":
             case "\r":
             case "\f":
+            case "Enter":
                 break;
             default:
                 if(textFilter.contains(TextFieldFilterFlags.ALPHABETIC) && Character.isAlphabetic(temp.toCharArray()[0])){
