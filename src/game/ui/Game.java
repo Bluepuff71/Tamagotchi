@@ -1,26 +1,27 @@
 package game.ui;
 
-import game.Communicate;
 import game.Tamagotchi;
-import game.core.enums.speech.PlayerSpeechOptions;
+import game.core.abstracts.Playable;
+import game.io.GameIO;
 import javatech.GameThread;
 import javatech.ui.GUI;
 import javatech.input.Input;
 import javatech.ui.TextGUI;
 import org.javatuples.Pair;
-import org.javatuples.Tuple;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Game extends GUI {
 
     private Tamagotchi tamagotchi;
 
-    Pair<Integer,Boolean> menuResponse;
+    private Pair<Integer,Boolean> menuResponse;
 
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
-        new GameThread(tamagotchi);
+        System.out.println(this.tamagotchi);
+        new GameThread(tamagotchi, 1000);
     }
 
     @Override
@@ -37,8 +38,10 @@ public class Game extends GUI {
                 "Water",
                 "Clean",
                 "Play",
-                "Communicate");
+                "Communicate",
+                "Save and Quit");
         if(menuResponse.getValue1()){
+            menuResponse = menuResponse.setAt1(false);
             switch (menuResponse.getValue0()){
                 case 0:
                     System.out.println("Feed");
@@ -50,11 +53,17 @@ public class Game extends GUI {
                     System.out.println("Clean");
                     break;
                 case 3:
-                    System.out.println("Play");
+                    ArrayList<Playable> playables = tamagotchi.getInventory();
+                    playables.get(0).interact(tamagotchi);
                     break;
                 case 4:
                     System.out.println("Communicate");
                     break;
+                case 5:
+                    System.out.println("Save and Quit");
+                    GameIO.SaveTamagotchi(tamagotchi);
+                    getWindow().drawGUI(new MainMenu());
+                    exit();
                 default:
                     break;
             }
