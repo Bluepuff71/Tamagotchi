@@ -10,6 +10,8 @@
 # BlueJ files
 *.ctxt
 
+# Ignore Pets
+PetData/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

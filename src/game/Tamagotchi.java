@@ -8,7 +8,6 @@ import game.items.Ball;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -40,7 +39,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     private int cleanliness;
 
     /**
-     * The current value of the mood (0-100)
+     * The current value of the mood (0-125)
      * Used to determine the mood state
      * Do not use this directly!
      */
@@ -130,7 +129,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setFood(int food) {
-        this.food = food;
+        this.food = (food > 100) ? 100 : food;
     }
 
     public int getWater() {
@@ -138,7 +137,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setWater(int water) {
-        this.water = water;
+        this.water = (water > 100) ? 100 : water;
     }
 
     public int getCleanliness() {
@@ -146,7 +145,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setCleanliness(int cleanliness) {
-        this.cleanliness = cleanliness;
+        this.cleanliness = (cleanliness > 100) ? 100 : cleanliness;
     }
 
     public MoodStates getMoodState() {
@@ -166,7 +165,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     public int getMood() { return mood; }
 
     public void setMood(int mood) {
-        this.mood = mood;
+        this.mood = (mood > 125) ? 125 : mood;
     }
 
     public int getMoney() {
@@ -191,6 +190,17 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends Item> ArrayList<T> getInventory(){
+        ArrayList<T> items = new ArrayList<>();
+        for (Item item : inventory) {
+            if(item != null){
+                items.add((T) item);
+            }
+        }
+        return items;
     }
 
     @Override
