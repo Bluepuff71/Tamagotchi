@@ -1,19 +1,22 @@
 package game.ui;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.lang.ref.Cleaner.Cleanable;
+import java.util.ArrayList;
+
+import org.javatuples.Pair;
+
 import game.Tamagotchi;
-import game.core.abstracts.Cleanable;
 import game.core.abstracts.Drink;
 import game.core.abstracts.Food;
 import game.core.abstracts.Playable;
 import game.io.GameIO;
 import javatech.GameThread;
-import javatech.ui.GUI;
 import javatech.input.Input;
+import javatech.ui.GUI;
 import javatech.ui.TextGUI;
-import org.javatuples.Pair;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Game extends GUI {
 
