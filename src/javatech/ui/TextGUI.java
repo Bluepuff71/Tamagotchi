@@ -17,9 +17,24 @@ public final class TextGUI {
         return ((num-1) % max + max) % max;
     }
 
-    //TODO Update docs
+    /**
+     * Prints a selectable menu to the screen
+     * @param g the graphics of the menu
+     * @param x the x-position
+     * @param y the y-position
+     * @param input the input instance to use
+     * @param upKey the key to use for moving up in the menu
+     * @param downKey the key to use for moving down in the menu
+     * @param selectKey the key to use for making a selection in the menu
+     * @param original the color of the unselected text
+     * @param selected the color of the highlighted text
+     * @param pair the tuple containing the data to modify
+     * @param title the title of the menu
+     * @param options the options to choose from within the menu
+     * @return a tuple containing the currently highlighted item and if it has been selected
+     */
     public static Pair<Integer, Boolean> selectableMenu(Graphics g, int x, int y, Input input, String upKey, String downKey, String selectKey, Color original, Color selected, Pair<Integer, Boolean> pair, String title, String... options){
-        if(pair != null && pair.getValue1()){
+        if((pair != null && pair.getValue1()) || options == null){
             return pair;
         }
         int selectedItem = (pair != null) ? pair.getValue0() : 0;
@@ -73,6 +88,7 @@ public final class TextGUI {
             case "\t":
             case "\r":
             case "\f":
+            case "Enter":
                 break;
             default:
                 if(textFilter.contains(TextFieldFilterFlags.ALPHABETIC) && Character.isAlphabetic(temp.toCharArray()[0])){

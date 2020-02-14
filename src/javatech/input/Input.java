@@ -52,15 +52,26 @@ public class Input implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         lastKeyPressed = String.valueOf(e.getKeyChar());
+        if(Integer.valueOf(e.getKeyChar()) == 10){
+            lastKeyPressed = "Enter";
+        }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keys.put(KeyEvent.getKeyText(e.getKeyCode()), true);
+        if(e.getKeyCode() == 10){
+            keys.put("Enter", true);
+        } else{
+            keys.put(KeyEvent.getKeyText(e.getKeyCode()), true);
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        keys.put(KeyEvent.getKeyText(e.getKeyCode()), false);
+        if(e.getKeyCode() == 10){
+            keys.put("Enter", false);
+        } else{
+            keys.put(KeyEvent.getKeyText(e.getKeyCode()), false);
+        }
     }
 }

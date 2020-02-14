@@ -28,13 +28,7 @@ public abstract class GUI extends Canvas implements Runnable {
      * Creates a new GUI with a black background and white text color.
      */
     public GUI(){
-        this.backgroundColor = Color.BLACK;
-        this.textColor = Color.WHITE;
-        setBackground(Color.BLACK);
-        setVisible(true);
-        this.setupGUIThread();
-        this.setupInput();
-        setFocusable(true);
+        GUIFactory(Color.BLACK, Color.WHITE);
     }
 
     /**
@@ -43,6 +37,15 @@ public abstract class GUI extends Canvas implements Runnable {
      * @param textColor the initial color of text
      */
     public GUI(Color backgroundColor, Color textColor){
+        GUIFactory(backgroundColor, textColor);
+    }
+
+    /**
+     * Builds the GUI
+     * @param backgroundColor the background color
+     * @param textColor the text color
+     */
+    private void GUIFactory(Color backgroundColor, Color textColor){
         this.backgroundColor = backgroundColor;
         this.textColor = textColor;
         setBackground(backgroundColor);
