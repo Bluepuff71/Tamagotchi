@@ -1,9 +1,16 @@
-package game.wash_method;
+package game.items.Soaps;
 
 import game.Tamagotchi;
+import game.core.abstracts.Cleanable;
 import game.core.interfaces.IInteractable;
 
-public class Soap implements IInteractable {
+public final class Soap extends Cleanable {
+
+    public Soap(){
+        this.setCost(10);
+        this.setName("Soap");
+        this.setDescription("Standard Soap");
+    }
 
     @Override
     public void interact(Tamagotchi tamagotchi) {
