@@ -1,4 +1,4 @@
-package game.items;
+package game.items.Toys;
 
 import game.Tamagotchi;
 import game.core.abstracts.Playable;

@@ -15,8 +15,8 @@ public final class Soda extends Drink {
     public void drink(Tamagotchi tamagotchi) {
         //increase mood after drinking drink
         tamagotchi.setMood(tamagotchi.getMood() + 20);
-        //decrease thirst beacause drink was consumed
-        tamagotchi.setWater(tamagotchi.getWater() - 10);
+        //increase water value because drink was consumed
+        tamagotchi.setWater(tamagotchi.getWater() + 10);
     }
     
 }
