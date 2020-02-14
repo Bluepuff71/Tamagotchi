@@ -22,9 +22,9 @@ public class TamagotchiResponse extends GUI {
 
     @Override
     public void draw(Graphics g, Input input) {        
-        g.setFont(new Font("Impact", Font.PLAIN, 100));
+        g.setFont(new Font("Impact", Font.PLAIN, 60));
         g.setColor(Color.WHITE);
-        g.drawString(String.format("%s" ,this.speech), 50,120);
+        g.drawString(String.format("%s said '%s'" ,this.tamagotchi.getName(),this.speech), 50,100);
 
         if(i==30){
             getWindow().drawGUI(new Game(this.tamagotchi, this.gameThread));
