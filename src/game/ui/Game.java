@@ -1,6 +1,9 @@
 package game.ui;
 
 import game.Tamagotchi;
+import game.core.abstracts.Cleanable;
+import game.core.abstracts.Drink;
+import game.core.abstracts.Food;
 import game.core.abstracts.Playable;
 import game.io.GameIO;
 import javatech.GameThread;
@@ -13,7 +16,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Game extends GUI {
-
     private Tamagotchi tamagotchi;
 
     private Pair<Integer,Boolean> menuResponse;
@@ -44,16 +46,19 @@ public class Game extends GUI {
             menuResponse = menuResponse.setAt1(false);
             switch (menuResponse.getValue0()){
                 case 0:
-                    System.out.println("Feed");
+                    ArrayList<Food> foods = tamagotchi.getInventory(Food.class);
+                    foods.get(0).eat(tamagotchi);
                     break;
                 case 1:
-                    System.out.println("Water");
+                    ArrayList<Drink> drinks = tamagotchi.getInventory(Drink.class);
+                    drinks.get(0).drink(tamagotchi);
                     break;
                 case 2:
-                    System.out.println("Clean");
+                    ArrayList<Cleanable> cleanables = tamagotchi.getInventory(Cleanable.class);
+                    cleanables.get(0).interact(tamagotchi);
                     break;
                 case 3:
-                    ArrayList<Playable> playables = tamagotchi.getInventory();
+                    ArrayList<Playable> playables = tamagotchi.getInventory(Playable.class);
                     playables.get(0).interact(tamagotchi);
                     break;
                 case 4:
