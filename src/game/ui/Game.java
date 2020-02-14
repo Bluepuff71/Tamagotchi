@@ -14,14 +14,19 @@ import java.util.ArrayList;
 
 public class Game extends GUI {
 
+    private GameThread gameThread;
+
     private Tamagotchi tamagotchi;
 
     private Pair<Integer,Boolean> menuResponse;
 
+    public Game(Tamagotchi tamagotchi, GameThread gameThread){
+        this.tamagotchi = tamagotchi;
+        this.gameThread = gameThread;
+    }
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
-        System.out.println(this.tamagotchi);
-        new GameThread(tamagotchi, 1000);
+        gameThread = new GameThread(tamagotchi, 1000);
     }
 
     @Override
@@ -58,7 +63,7 @@ public class Game extends GUI {
                     playables.get(0).interact(tamagotchi);
                     break;
                 case 4:
-                    getWindow().drawGUI(new CommunicateGUI(this.tamagotchi));
+                    getWindow().drawGUI(new CommunicateGUI(this.tamagotchi, this.gameThread));
                     exit();
                     break;
                 case 5:

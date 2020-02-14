@@ -4,6 +4,7 @@ import java.awt.*;
 
 import game.Communicate;
 import game.Tamagotchi;
+import javatech.GameThread;
 import javatech.input.*;
 import javatech.ui.*;
 
@@ -14,8 +15,9 @@ public class CommunicateGUI extends GUI {
     private Tamagotchi tamagotchi;
     private Communicate speech;
     private Pair<Integer,Boolean> menuResponse;
-
-    public CommunicateGUI(Tamagotchi tamagotchi){
+    private GameThread gameThread;
+    public CommunicateGUI(Tamagotchi tamagotchi,GameThread gameThread){ 
+        this.gameThread = gameThread;
         this.tamagotchi = tamagotchi;
         this.speech = new Communicate(tamagotchi.getMoodState(), tamagotchi.getPersonality());
     }
@@ -39,16 +41,19 @@ public class CommunicateGUI extends GUI {
             menuResponse = menuResponse.setAt1(false);
             switch (menuResponse.getValue0()){
                 case 0:
-                    g.drawString(String.format("%s", speech.getSpeechAnswer("A")), 100,180);
+                    getWindow().drawGUI(new TamagotchiResponse(speech.getSpeechAnswer("A"), this.tamagotchi, this.gameThread));
+                    exit();
                     break;
                 case 1:
-                    g.drawString(String.format("%s", speech.getSpeechAnswer("B")), 100,180);
+                    getWindow().drawGUI(new TamagotchiResponse(speech.getSpeechAnswer("B"), this.tamagotchi, this.gameThread));
+                    exit();
                     break;
                 case 2:
-                    g.drawString(String.format("%s", speech.getSpeechAnswer("C")), 100,180);
+                    getWindow().drawGUI(new TamagotchiResponse(speech.getSpeechAnswer("C"), this.tamagotchi, this.gameThread));
+                    exit();
                     break;
                 case 3:
-                    getWindow().drawGUI(new Game(this.tamagotchi));
+                    getWindow().drawGUI(new Game(this.tamagotchi, this.gameThread));
                     exit();
                     break;
                 default:
