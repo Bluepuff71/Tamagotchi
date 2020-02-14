@@ -21,7 +21,7 @@ public class Game extends GUI {
 
     private Tamagotchi tamagotchi;
 
-    private Pair<Integer,Boolean>   menuResponse;
+    private Pair<Integer,Boolean> menuResponse;
 
     public Game(Tamagotchi tamagotchi, GameThread gameThread){
         this.tamagotchi = tamagotchi;
