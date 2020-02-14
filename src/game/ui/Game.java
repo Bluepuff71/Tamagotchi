@@ -1,6 +1,5 @@
 package game.ui;
 
-import game.Clean;
 import game.Communicate;
 import game.Tamagotchi;
 import game.core.enums.speech.PlayerSpeechOptions;
@@ -48,8 +47,6 @@ public class Game extends GUI {
                     System.out.println("Water");
                     break;
                 case 2:
-                    Clean clean = new Clean();
-                    clean.interact(tamagotchi);
                     System.out.println("Clean");
                     break;
                 case 3:
