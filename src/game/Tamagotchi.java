@@ -4,7 +4,10 @@ import game.core.enums.*;
 import game.core.abstracts.*;
 import game.core.interfaces.IInteractable;
 import game.core.interfaces.IPerishable;
-import game.items.Ball;
+import game.items.Drinks.Soda;
+import game.items.Foods.Burger;
+import game.items.Soaps.Soap;
+import game.items.Toys.Ball;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -68,6 +71,9 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     private ArrayList<Item> inventory = new ArrayList<>(){
         {
             add(new Ball());
+            add(new Soap());
+            add(new Burger());
+            add(new Soda());
         }
     };
 
@@ -195,10 +201,10 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends Item> ArrayList<T> getInventory(){
+    public <T extends Item> ArrayList<T> getInventory(Class<T> classToLookFor){
         ArrayList<T> items = new ArrayList<>();
         for (Item item : inventory) {
-            if(item != null){
+            if(classToLookFor.isAssignableFrom(item.getClass())){
                 items.add((T) item);
             }
         }
