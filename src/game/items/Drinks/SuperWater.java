@@ -15,8 +15,8 @@ public final class SuperWater extends Drink {
     public void drink(Tamagotchi tamagotchi) {
         //increase mood after drinking drink
         tamagotchi.setMood(tamagotchi.getMood() + 10);
-        //decrease thirst beacause drink was consumed
-        tamagotchi.setWater(tamagotchi.getWater() - 20);
+        //increase water value because drink was consumed
+        tamagotchi.setWater(tamagotchi.getWater() + 20);
     }
     
 }

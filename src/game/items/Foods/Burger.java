@@ -17,10 +17,10 @@ public final class Burger extends Food {
         tamagotchi.setMood(tamagotchi.getMood() + 15);
         //decrease cleanliness after eating food
         tamagotchi.setCleanliness(tamagotchi.getCleanliness() - 10);
-        //decrement hunger because food was consumed
-        tamagotchi.setFood(tamagotchi.getFood() - 10);
-        //increase thirst beacause food was consumed
-        tamagotchi.setWater(tamagotchi.getWater() + 5);
+        //increase food value because food was consumed
+        tamagotchi.setFood(tamagotchi.getFood() + 10);
+        //decrease water value because food was consumed
+        tamagotchi.setWater(tamagotchi.getWater() - 5);
     }
     
 }
