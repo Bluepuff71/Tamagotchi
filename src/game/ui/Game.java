@@ -33,7 +33,8 @@ public class Game extends GUI {
         g.drawString(String.format("Food: %d", tamagotchi.getFood()), 300,180);
         g.drawString(String.format("Water: %d", tamagotchi.getWater()), 300,210);
         g.drawString(String.format("Cleanliness: %d", tamagotchi.getCleanliness()), 300,240);
-        menuResponse = TextGUI.selectableMenu(g, 300, 270, input, "W", "S", "Enter", Color.WHITE, Color.GREEN,  menuResponse, "What would you like to do?",
+        menuResponse = TextGUI.selectableMenu(g, 300, 270, input, "W", "S", "Enter", Color.WHITE, Color.GREEN,  menuResponse, 
+        "What would you like to say?",
                 "Feed",
                 "Water",
                 "Clean",
@@ -57,7 +58,8 @@ public class Game extends GUI {
                     playables.get(0).interact(tamagotchi);
                     break;
                 case 4:
-                    System.out.println("Communicate");
+                    getWindow().drawGUI(new CommunicateGUI(this.tamagotchi));
+                    exit();
                     break;
                 case 5:
                     System.out.println("Save and Quit");
