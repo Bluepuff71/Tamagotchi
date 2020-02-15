@@ -1,16 +1,19 @@
 package game;
 
-import game.core.enums.*;
-import game.core.abstracts.*;
-import game.core.interfaces.IInteractable;
-import game.core.interfaces.IPerishable;
-import game.items.Ball;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+
+import game.core.abstracts.Item;
+import game.core.enums.MoodStates;
+import game.core.enums.Personality;
+import game.core.interfaces.IInteractable;
+import game.core.interfaces.IPerishable;
+import game.items.Drinks.Soda;
+import game.items.Foods.Burger;
+import game.items.Soaps.Soap;
+import game.items.Toys.Ball;
 
 public final class Tamagotchi implements IInteractable, IPerishable, Serializable {
 
@@ -40,7 +43,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     private int cleanliness;
 
     /**
-     * The current value of the mood (0-100)
+     * The current value of the mood (0-125)
      * Used to determine the mood state
      * Do not use this directly!
      */
@@ -69,6 +72,9 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     private ArrayList<Item> inventory = new ArrayList<>(){
         {
             add(new Ball());
+            add(new Soap());
+            add(new Burger());
+            add(new Soda());
         }
     };
 
@@ -130,7 +136,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setFood(int food) {
-        this.food = food;
+        this.food = (food > 100) ? 100 : food;
     }
 
     public int getWater() {
@@ -138,7 +144,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setWater(int water) {
-        this.water = water;
+        this.water = (water > 100) ? 100 : water;
     }
 
     public int getCleanliness() {
@@ -146,7 +152,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setCleanliness(int cleanliness) {
-        this.cleanliness = cleanliness;
+        this.cleanliness = (cleanliness > 100) ? 100 : cleanliness;
     }
 
     public MoodStates getMoodState() {
@@ -163,10 +169,12 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
         }
     }
 
-    public int getMood() { return mood; }
+    public int getMood() {
+        return mood;
+    }
 
     public void setMood(int mood) {
-        this.mood = mood;
+        this.mood = (mood > 125) ? 125 : mood;
     }
 
     public int getMoney() {
@@ -191,6 +199,17 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends Item> ArrayList<T> getInventory(Class<T> classToLookFor){
+        ArrayList<T> items = new ArrayList<>();
+        for (Item item : inventory) {
+            if(classToLookFor.isAssignableFrom(item.getClass())){
+                items.add((T) item);
+            }
+        }
+        return items;
     }
 
     @Override

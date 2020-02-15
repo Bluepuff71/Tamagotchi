@@ -11,8 +11,6 @@ import org.javatuples.Pair;
 
 public class MainMenu extends GUI {
 
-    private int selectedItem = 0;
-
     private Pair<Integer, Boolean> menuResponse;
 
     private String name = "";
@@ -38,11 +36,13 @@ public class MainMenu extends GUI {
                     break;
                 }
                 case 1:{
-                    g.drawString("2", 50,50);
+                    getWindow().drawGUI(new LoadTamagotchi());
+                    exit();
                     break;
                 }
                 case 2:{
-                    g.drawString("3", 50,50);
+                    exit();
+                    System.exit(1);
                     break;
                 }
                 default:
