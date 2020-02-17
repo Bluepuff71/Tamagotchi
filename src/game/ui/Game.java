@@ -3,7 +3,6 @@ package game.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.lang.ref.Cleaner.Cleanable;
 import java.util.ArrayList;
 
 import org.javatuples.Pair;
@@ -12,6 +11,7 @@ import game.Tamagotchi;
 import game.core.abstracts.Drink;
 import game.core.abstracts.Food;
 import game.core.abstracts.Playable;
+import game.core.abstracts.Cleanable;
 import game.io.GameIO;
 import javatech.GameThread;
 import javatech.input.Input;
