@@ -1,18 +1,19 @@
 package game;
 
-import game.core.enums.*;
-import game.core.abstracts.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
+
+import game.core.abstracts.Item;
+import game.core.enums.MoodStates;
+import game.core.enums.Personality;
 import game.core.interfaces.IInteractable;
 import game.core.interfaces.IPerishable;
 import game.items.Drinks.Soda;
 import game.items.Foods.Burger;
 import game.items.Soaps.Soap;
 import game.items.Toys.Ball;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.UUID;
 
 public final class Tamagotchi implements IInteractable, IPerishable, Serializable {
 

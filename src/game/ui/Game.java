@@ -1,29 +1,38 @@
 package game.ui;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.util.ArrayList;
+
+import org.javatuples.Pair;
+
 import game.Tamagotchi;
-import game.core.abstracts.Cleanable;
 import game.core.abstracts.Drink;
 import game.core.abstracts.Food;
 import game.core.abstracts.Playable;
+import game.core.abstracts.Cleanable;
 import game.io.GameIO;
 import javatech.GameThread;
-import javatech.ui.GUI;
 import javatech.input.Input;
+import javatech.ui.GUI;
 import javatech.ui.TextGUI;
-import org.javatuples.Pair;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Game extends GUI {
+
+    private GameThread gameThread;
+
     private Tamagotchi tamagotchi;
 
     private Pair<Integer,Boolean> menuResponse;
 
+    public Game(Tamagotchi tamagotchi, GameThread gameThread){
+        this.tamagotchi = tamagotchi;
+        this.gameThread = gameThread;
+    }
     public Game(Tamagotchi tamagotchi){
         this.tamagotchi = tamagotchi;
-        System.out.println(this.tamagotchi);
-        new GameThread(tamagotchi, 1000);
+        gameThread = new GameThread(tamagotchi, 1000);
     }
 
     @Override
@@ -35,7 +44,8 @@ public class Game extends GUI {
         g.drawString(String.format("Food: %d", tamagotchi.getFood()), 300,180);
         g.drawString(String.format("Water: %d", tamagotchi.getWater()), 300,210);
         g.drawString(String.format("Cleanliness: %d", tamagotchi.getCleanliness()), 300,240);
-        menuResponse = TextGUI.selectableMenu(g, 300, 270, input, "W", "S", "Enter", Color.WHITE, Color.GREEN,  menuResponse, "What would you like to do?",
+        menuResponse = TextGUI.selectableMenu(g, 300, 270, input, "W", "S", "Enter", Color.WHITE, Color.GREEN,  menuResponse, 
+        "What would you like to say?",
                 "Feed",
                 "Water",
                 "Clean",
@@ -62,7 +72,8 @@ public class Game extends GUI {
                     playables.get(0).interact(tamagotchi);
                     break;
                 case 4:
-                    System.out.println("Communicate");
+                    getWindow().drawGUI(new CommunicateGUI(this.tamagotchi, this.gameThread));
+                    exit();
                     break;
                 case 5:
                     System.out.println("Save and Quit");
