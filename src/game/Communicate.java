@@ -13,12 +13,8 @@ So pass in the mood/personality if you want to get different then base speech op
 */
 public class Communicate{
 
-    public int currentMood;
-    public Personality currentPersonality;
-
-    public Communicate(){
-        //Uses base Communication options
-    }
+    private int currentMood;
+    private Personality currentPersonality;
 
     public Communicate(MoodStates mood, Personality personality){
         //Takes in the personality/mood to give a different set of communcations
@@ -28,38 +24,31 @@ public class Communicate{
     private int convertMood(MoodStates mood){
         switch(mood){
             case HAPPY:
-            return 3;
+                return 3;
             case NEUTRAL:
-            return 2;
+                return 2;
             case SAD:
-            return 1;
-            case DEAD:
-            return 0;
-            default:
-            return 3;
+                return 1;
+                default:
+                    return 0;
         }
     }
     private int convertPlayerSelection(String Choice){
         switch(Choice){
             case "A":
-            return 0;
+                return 0;
             case "B":
-            return 1;
-            case "C":
-            return 2;
+                return 1;
             default:
-            return 0;
+                return 2;
         }
     }
     public String getSpeechAnswer(String playerChoice){//pass in the players choice in a string
-        switch(this.currentPersonality){
-            case NORMAL:
+        if(this.currentPersonality == Personality.NORMAL){
             return NormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
-            case NOT_NORMAL:
+        } else {
             return NotNormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
-            default:
-            return NormalSpeech.speech[this.convertPlayerSelection(playerChoice)][this.currentMood];
-        }    
+        }
     }
 }
 /*

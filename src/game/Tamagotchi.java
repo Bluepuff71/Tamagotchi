@@ -14,8 +14,9 @@ import game.items.Drinks.Soda;
 import game.items.Foods.Burger;
 import game.items.Soaps.Soap;
 import game.items.Toys.Ball;
+import jdk.jshell.spi.ExecutionControl;
 
-public final class Tamagotchi implements IInteractable, IPerishable, Serializable {
+public final class Tamagotchi implements IPerishable, Serializable {
 
     /**
      * The universally unique identifier (UUID) of the Tamagotchi
@@ -102,18 +103,30 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     /**
+     * Clamps the given x value to the range (min, max)
+     * @param min the minimum number (inclusive)
+     * @param max the maximum number (inclusive)
+     * @param x the number to clamp
+     * @return the clamped number
+     */
+    private int clamp(int min, int max, int x){
+        if(x > max){
+            return max;
+        } else if(x < min){
+            return min;
+        } else {
+            return x;
+        }
+    }
+
+    /**
      * Decrements all the stats by 1
      */
     public void decrementStats(){
-        this.food = this.food - 1;
-        this.water = this.water - 1;
-        this.cleanliness = this.cleanliness - 1;
-        this.mood = this.mood - 1;
-    }
-
-    @Override
-    public void interact(Tamagotchi tamagotchi) {
-        // TODO: 2/6/2020 Add communication to base interaction?
+        this.setFood(this.food - 1);
+        this.setWater(this.water - 1);
+        this.setCleanliness(this.cleanliness - 1);
+        this.setMood(this.mood - 1);
     }
 
     //Getters and Setters
@@ -136,7 +149,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setFood(int food) {
-        this.food = (food > 100) ? 100 : food;
+        this.food = clamp(0,100, food);
     }
 
     public int getWater() {
@@ -144,7 +157,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setWater(int water) {
-        this.water = (water > 100) ? 100 : water;
+        this.water = clamp(0,100, water);
     }
 
     public int getCleanliness() {
@@ -152,7 +165,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setCleanliness(int cleanliness) {
-        this.cleanliness = (cleanliness > 100) ? 100 : cleanliness;
+        this.cleanliness = clamp(0,100, cleanliness);;
     }
 
     public MoodStates getMoodState() {
@@ -162,10 +175,8 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
             return MoodStates.SAD;
         } else if(mood >= 31 && mood <= 60){
             return MoodStates.NEUTRAL;
-        } else if(mood >= 61 && mood <= 100){
-            return MoodStates.HAPPY;
         } else {
-            return MoodStates.INVALID;
+            return MoodStates.HAPPY;
         }
     }
 
@@ -174,7 +185,7 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
     }
 
     public void setMood(int mood) {
-        this.mood = (mood > 125) ? 125 : mood;
+        this.mood = clamp(0,125, mood);
     }
 
     public int getMoney() {
@@ -193,13 +204,13 @@ public final class Tamagotchi implements IInteractable, IPerishable, Serializabl
         this.personality = personality;
     }
 
-    public int getDifficulty() {
+    /*public int getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
-    }
+    }*/
 
     @SuppressWarnings("unchecked")
     public <T extends Item> ArrayList<T> getInventory(Class<T> classToLookFor){
