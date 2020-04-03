@@ -3,6 +3,7 @@ package game.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.javatuples.Pair;
@@ -77,7 +78,11 @@ public class Game extends GUI {
                     break;
                 case 5:
                     System.out.println("Save and Quit");
-                    GameIO.SaveTamagotchi(tamagotchi);
+                    try{
+                        GameIO.SaveTamagotchi(tamagotchi);
+                    } catch (IOException e){
+                        System.out.println("There was a problem saving your tamagotchi");
+                    }
                     getWindow().drawGUI(new MainMenu());
                     exit();
                 default:

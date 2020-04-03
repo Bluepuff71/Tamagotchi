@@ -32,14 +32,13 @@ public class GameThread implements Runnable {
     public void run() {
         try {
             while (!gameThread.isInterrupted()) {
-                Thread.sleep(sleepTime);
+                if(sleepTime > 0){
+                    Thread.sleep(sleepTime);
+                }
                 perishable.decrementStats();
             }
         } catch (InterruptedException ignore) {
 
-        } catch (Exception e){
-            System.out.println("Big Error. Tell Emery!");
-            e.printStackTrace();
         }
     }
 }

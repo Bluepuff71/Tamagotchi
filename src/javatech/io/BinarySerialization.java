@@ -31,13 +31,13 @@ public class BinarySerialization{
      * @throws IOException if an error occurs during deserialization
      * @throws ClassNotFoundException if the specified class {@code T} is not found
      */
+    @SuppressWarnings("unchecked")
     public static <T extends Serializable> T Deserialize(File file) throws IOException, ClassNotFoundException{
         FileInputStream fileIn = new FileInputStream(file);
         ObjectInputStream in = new ObjectInputStream(fileIn);
-        @SuppressWarnings("unchecked")
-        T obj = (T) in.readObject();
+        T tObj = (T) in.readObject();
         in.close();
         fileIn.close();
-        return obj;
+        return tObj;
     }
 }
