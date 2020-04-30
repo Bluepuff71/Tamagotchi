@@ -105,7 +105,7 @@ public final class Tamagotchi implements IPerishable, Serializable {
     private Personality generatePersonality(){
         String output = "0";
         try {
-            URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Personality");//your url i.e fetch data from .
+            URL url = new URL("http://localhost:8080/ServiceRedo_war/Personality");//your url i.e fetch data from .
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -197,7 +197,7 @@ public final class Tamagotchi implements IPerishable, Serializable {
         String output = "0";
         try {
             if(mood == 0){
-                URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Mood/0");//your url i.e fetch data from .
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/0");//your url i.e fetch data from .
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
@@ -211,7 +211,7 @@ public final class Tamagotchi implements IPerishable, Serializable {
 
                 return output;
             } else if(mood >= 1 && mood <= 30){
-                URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Mood/1");//your url i.e fetch data from .
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/1");//your url i.e fetch data from .
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
@@ -225,7 +225,7 @@ public final class Tamagotchi implements IPerishable, Serializable {
 
                 return output;
             } else if(mood >= 31 && mood <= 60){
-                URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Mood/2");//your url i.e fetch data from .
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/2");//your url i.e fetch data from .
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
@@ -239,7 +239,7 @@ public final class Tamagotchi implements IPerishable, Serializable {
 
                 return output;
             } else {
-                URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Mood/3");//your url i.e fetch data from .
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/3");//your url i.e fetch data from .
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
