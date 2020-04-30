@@ -1,6 +1,10 @@
 package game;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -99,7 +103,29 @@ public final class Tamagotchi implements IPerishable, Serializable {
      * @return a random personality
      */
     private Personality generatePersonality(){
-        return Personality.values()[new Random().nextInt(Personality.values().length - 1)];
+        String output = "0";
+        try {
+
+            URL url = new URL("http://localhost:8080/ServiceRedo_war_exploded/Personality");//your url i.e fetch data from .
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Failed : HTTP Error code : "
+                        + conn.getResponseCode());
+            }
+            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+            BufferedReader br = new BufferedReader(in);
+            output = br.readLine();
+            conn.disconnect();
+
+        } catch (Exception e) {
+            System.out.println("Exception in NetClientGet:- " + e);
+        }
+        int result = Integer.parseInt(output);
+        System.out.println(result);
+
+        return Personality.values()[result];
     }
 
     /**
