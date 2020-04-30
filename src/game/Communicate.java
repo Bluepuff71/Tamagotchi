@@ -16,21 +16,21 @@ public class Communicate{
     private int currentMood;
     private Personality currentPersonality;
 
-    public Communicate(MoodStates mood, Personality personality){
+    public Communicate(String mood, Personality personality){
         //Takes in the personality/mood to give a different set of communcations
         this.currentMood = this.convertMood(mood);
         this.currentPersonality = personality;
     }
-    private int convertMood(MoodStates mood){
+    private int convertMood(String mood){
         switch(mood){
-            case HAPPY:
+            case "HAPPY":
                 return 3;
-            case NEUTRAL:
+            case "NEUTRAL":
                 return 2;
-            case SAD:
+            case "SAD":
                 return 1;
-                default:
-                    return 0;
+            default:
+                return 0;
         }
     }
     private int convertPlayerSelection(String Choice){
