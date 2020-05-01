@@ -1,6 +1,10 @@
 package game;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -99,7 +103,28 @@ public final class Tamagotchi implements IPerishable, Serializable {
      * @return a random personality
      */
     private Personality generatePersonality(){
-        return Personality.values()[new Random().nextInt(Personality.values().length - 1)];
+        String output = "0";
+        try {
+            URL url = new URL("http://localhost:8080/ServiceRedo_war/Personality");//your url i.e fetch data from .
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Failed : HTTP Error code : "
+                        + conn.getResponseCode());
+            }
+            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+            BufferedReader br = new BufferedReader(in);
+            output = br.readLine();
+            conn.disconnect();
+
+        } catch (Exception e) {
+            System.out.println("Exception in NetClientGet:- " + e);
+        }
+        int result = Integer.parseInt(output);
+        System.out.println(result);
+
+        return Personality.values()[result];
     }
 
     /**
@@ -168,16 +193,72 @@ public final class Tamagotchi implements IPerishable, Serializable {
         this.cleanliness = clamp(0,100, cleanliness);;
     }
 
-    public MoodStates getMoodState() {
-        if(mood == 0){
-            return MoodStates.DEAD;
-        } else if(mood >= 1 && mood <= 30){
-            return MoodStates.SAD;
-        } else if(mood >= 31 && mood <= 60){
-            return MoodStates.NEUTRAL;
-        } else {
-            return MoodStates.HAPPY;
+    public String getMoodState() {
+        String output = "0";
+        try {
+            if(mood == 0){
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/0");//your url i.e fetch data from .
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Accept", "application/json");
+                if (conn.getResponseCode() != 200) {
+                    throw new RuntimeException("Failed : HTTP Error code : "
+                            + conn.getResponseCode());
+                }
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+                BufferedReader br = new BufferedReader(in);
+                output = br.readLine();
+
+                return output;
+            } else if(mood >= 1 && mood <= 30){
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/1");//your url i.e fetch data from .
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Accept", "application/json");
+                if (conn.getResponseCode() != 200) {
+                    throw new RuntimeException("Failed : HTTP Error code : "
+                            + conn.getResponseCode());
+                }
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+                BufferedReader br = new BufferedReader(in);
+                output = br.readLine();
+
+                return output;
+            } else if(mood >= 31 && mood <= 60){
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/2");//your url i.e fetch data from .
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Accept", "application/json");
+                if (conn.getResponseCode() != 200) {
+                    throw new RuntimeException("Failed : HTTP Error code : "
+                            + conn.getResponseCode());
+                }
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+                BufferedReader br = new BufferedReader(in);
+                output = br.readLine();
+
+                return output;
+            } else {
+                URL url = new URL("http://localhost:8080/ServiceRedo_war/Mood/3");//your url i.e fetch data from .
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Accept", "application/json");
+                if (conn.getResponseCode() != 200) {
+                    throw new RuntimeException("Failed : HTTP Error code : "
+                            + conn.getResponseCode());
+                }
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+                BufferedReader br = new BufferedReader(in);
+                output = br.readLine();
+
+                return output;
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in NetClientGet:- " + e);
+            return "Neutral";
         }
+        
+        
     }
 
     public int getMood() {
